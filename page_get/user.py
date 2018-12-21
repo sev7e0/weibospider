@@ -137,7 +137,10 @@ def get_fans_or_followers_ids(user_id, crawl_type, verify_type):
     :param verify_type: 1 stands for 100505(normal users), 2 stands for 100606(special users,such as writers)
     :return: lists of fans or followers
     """
-
+    # if crawl_type == 1:
+    #     fans_or_follows_url = 'https://weibo.com/{}/fans?cfs=600&relate=fans&t=1&f=1&type=&Pl_Official_RelationFans__90_page={}#Pl_Official_RelationFans__90'
+    # else:
+    #     fans_or_follows_url = 'https://weibo.com/p/100505{}/myfollow?t=1&cfs=&Pl_Official_RelationMyfollow__95_page={}#Pl_Official_RelationMyfollow__95'
     # todo deal with conditions that fans and followers more than 5 pages
     if crawl_type == 1 and verify_type == 1:
         fans_or_follows_url = 'http://weibo.com/p/100505{}/follow?relate=fans&page={}#Pl_Official_HisRelation__60'
