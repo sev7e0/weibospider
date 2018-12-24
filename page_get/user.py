@@ -1,5 +1,7 @@
 import json
 import re
+import time
+
 import requests
 from urllib.parse import quote
 
@@ -101,6 +103,7 @@ def get_profile(user_id):
     user = UserOper.get_user_by_uid(user_id)
 
     if user:
+        # 不为空则判定为已经爬取
         storage.info('user {id} has already crawled'.format(id=user_id))
         SeedidsOper.set_seed_crawled(user_id, 1)
         is_crawled = 1
@@ -143,13 +146,13 @@ def get_fans_or_followers_ids(user_id, crawl_type, verify_type):
     #     fans_or_follows_url = 'https://weibo.com/p/100505{}/myfollow?t=1&cfs=&Pl_Official_RelationMyfollow__95_page={}#Pl_Official_RelationMyfollow__95'
     # todo deal with conditions that fans and followers more than 5 pages
     if crawl_type == 1 and verify_type == 1:
-        fans_or_follows_url = 'http://weibo.com/p/100505{}/follow?relate=fans&page={}#Pl_Official_HisRelation__60'
+        fans_or_follows_url = 'https://weibo.com/{}/fans?cfs=600&relate=fans&t=1&f=1&type=&Pl_Official_RelationFans__90_page={}#Pl_Official_RelationFans__90'
     elif crawl_type == 2 and verify_type == 1:
-        fans_or_follows_url = 'http://weibo.com/p/100505{}/follow?page={}#Pl_Official_HisRelation__60'
+        fans_or_follows_url = 'https://weibo.com/p/100505{}/myfollow?t=1&cfs=&Pl_Official_RelationMyfollow__95_page={}#Pl_Official_RelationMyfollow__95'
     elif crawl_type == 1 and verify_type == 2:
-        fans_or_follows_url = 'http://weibo.com/p/100606{}/follow?relate=fans&page={}#Pl_Official_HisRelation__47'
+        fans_or_follows_url = 'https://weibo.com/{}/fans?cfs=600&relate=fans&t=1&f=1&type=&Pl_Official_RelationFans__90_page={}#Pl_Official_RelationFans__90'
     elif crawl_type == 2 and verify_type == 2:
-        fans_or_follows_url = 'http://weibo.com/p/100606{}/follow?page={}#Pl_Official_HisRelation__47'
+        fans_or_follows_url = 'https://weibo.com/p/100505{}/myfollow?t=1&cfs=&Pl_Official_RelationMyfollow__95_page={}#Pl_Official_RelationMyfollow__95'
 
     cur_page = 1
     max_page = 6

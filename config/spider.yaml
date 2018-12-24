@@ -14,8 +14,8 @@ max_retries: 5                 # retry times for crawling
 
 # You should set the args below if you login from uncommon place
 # It's for verification code indentified
-yundama_username: xxxxxx           # account for yundama
-yundama_passwd: xxxxxx             # password for yundama
+yundama_username: seven           # account for yundama
+yundama_passwd: qu574YPA2v9iFEP             # password for yundama
 
 # only crawl weibo(bowen) after
 # only affect to home crawler
@@ -59,14 +59,14 @@ db:
     host: 127.0.0.1
     port: 3306
     user: root
-    password: 123456
-    db_name: weibo
+    password: ''
+    db_name: db2weibo
     db_type: mysql
 
 redis:
     host: 127.0.0.1
     port: 6379
-    password: ''
+    password: java
     cookies: 1                   # store and fetch cookies
     # store fetched urls and results,so you can decide whether retry to crawl the urls or not
     urls: 2

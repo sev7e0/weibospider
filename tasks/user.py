@@ -74,8 +74,10 @@ def crawl_person_infos_by_name(name):
 
 @app.task(ignore_result=True)
 def execute_user_task():
+    # 查找seed表中报错的所有用户id，条件为is_crawled=0
     seeds = SeedidsOper.get_seed_ids()
     if seeds:
         for seed in seeds:
+            # 提交任务
             app.send_task('tasks.user.crawl_person_infos', args=(seed.uid,), queue='user_crawler',
                           routing_key='for_user_info')

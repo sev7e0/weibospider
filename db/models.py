@@ -1,3 +1,5 @@
+from sqlalchemy import func
+
 from .basic import Base
 from .tables import *
 
