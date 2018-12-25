@@ -1,8 +1,5 @@
-import json
-import re
 import time
 
-import requests
 from urllib.parse import quote
 
 from db.models import User
