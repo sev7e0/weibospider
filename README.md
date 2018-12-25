@@ -1,5 +1,7 @@
 # 重新维护项目文档(:construction:building...)
-## 项目介绍 :triangular_flag_on_post:
+## 项目说明 :triangular_flag_on_post:
+
+本项目基于weibospider改造，主要替换了一些微博已经修改的接口，主体功能未做改动，后期看需要再决定。
 
 ## 基础环境配置 :triangular_flag_on_post:
 
@@ -41,8 +43,3 @@ redis-cli -h 127.0.0.1 -p 6379 -a "java"
 ```
 
 7. 确认登录成功后,执行first_task_execution/user_first.py会看到步骤5中的窗口打印日志,未报异常就可以查看wbuser表中爬取到的相关数据,至此一次简单的微博用户数据爬取完成.
-## 致谢 :triangular_flag_on_post:
-- 感谢大神[Ask](https://github.com/ask)的[celery](https://github.com/celery/celery)分布式任务调度框架和大神[kennethreitz](https://github.com/kennethreitz/requests)的[requests](https://github.com/kennethreitz/requests)库
-- 感谢为项目贡献源码的朋友，点击查看[贡献者列表](./AUTHORS.rst)
-- 感谢所有捐赠本项目的朋友，点击查看[捐赠者列表](https://github.com/ResolveWang/WeiboSpider/wiki/%E6%8D%90%E8%B5%A0%E8%AF%A5%E9%A1%B9%E7%9B%AE)
-- 感谢`star`支持的网友和在使用过程中提issue或者给出宝贵建议的朋友
